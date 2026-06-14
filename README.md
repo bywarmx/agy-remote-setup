@@ -4,16 +4,15 @@ Este script automatiza la transferencia del binario `agy` (Antigravity CLI) y su
 
 ## Requisitos
 - Python 3 y D-Bus instalados localmente (para extraer el token de autenticación del llavero).
-- Acceso SSH mediante llave privada (`.pem`) al servidor remoto.
+- Acceso SSH al servidor remoto (por medio de contraseña, ssh-agent o llave privada PEM).
 
 ## Uso
 
 ```bash
 chmod +x setup_agy_remote.sh
-./setup_agy_remote.sh <usuario@ip_servidor_remoto> <ruta_llave_pem> [puerto_ssh]
+./setup_agy_remote.sh <usuario@ip_servidor_remoto> [ruta_llave_pem] [puerto_ssh]
 ```
 
-Ejemplo:
-```bash
-./setup_agy_remote.sh ubuntu@144.22.209.220 /home/bywarrior/Descargas/news.pem
-```
+Ejemplos:
+- **Con llave PEM:** `./setup_agy_remote.sh ubuntu@144.22.209.220 /home/bywarrior/Descargas/news.pem`
+- **Sin llave PEM (usa contraseña, ssh-agent o configuración SSH estándar):** `./setup_agy_remote.sh ubuntu@144.22.209.220`
